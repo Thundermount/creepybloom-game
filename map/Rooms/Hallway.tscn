@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://map/planks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/RoomGen.gd" type="Script" id=2]
+[ext_resource path="res://map/Brickwall_shrinked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/rock_floor_3d.tscn" type="PackedScene" id=4]
+
+[node name="World" type="Spatial"]
+
+[node name="map" type="StaticBody" parent="."]
+
+[node name="planks" parent="map" instance=ExtResource( 1 )]
+
+[node name="planks2" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="RoomSpawner" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+shape = null
+script = ExtResource( 2 )
+
+[node name="Brickwall_shrinked" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0 )
+
+[node name="Brickwall_shrinked4" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2 )
+
+[node name="Brickwall_shrinked2" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0 )
+
+[node name="Brickwall_shrinked3" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2 )
+
+[node name="rock_floor_3d" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, 0 )
+
+[node name="rock_floor_3d2" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -2 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="planks4" parent="Area" instance=ExtResource( 1 )]
+visible = false
+
+[node name="planks3" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+visible = false
+
+[node name="Brickwall_shrinked7" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0 )
+visible = false
+
+[node name="Brickwall_shrinked8" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2 )
+visible = false
+
+[node name="Brickwall_shrinked6" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0 )
+visible = false
+
+[node name="Brickwall_shrinked5" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2 )
+visible = false
+
+[node name="rock_floor_3d3" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, 0 )
+visible = false
+
+[node name="rock_floor_3d4" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -2 )
+visible = false
+[connection signal="body_entered" from="Area" to="map/RoomSpawner" method="_on_Area_body_entered"]

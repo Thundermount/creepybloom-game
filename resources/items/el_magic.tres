@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Item.gd" type="Script" id=1]
+[ext_resource path="res://sprites/items/el_magic.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Element of magic"
+description = "Nobody knows what the hell is that"
+sprite = ExtResource( 2 )
+item_type = 0
+HP = 0
+speed = 0
+attack_speed = 0
+damage = 2
+jump = 0
+projectile_speed = 0

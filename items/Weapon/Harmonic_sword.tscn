@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://items/Weapon/Bullet/Sword_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/items/harmony_sword.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fire"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anim_point:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -33.7179, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire2"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anim_point:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 2.49495e-006, 115, -90 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="2" type="Spatial"]
+script = ExtResource( 1 )
+CreateBulletAt = 1
+Offset = Vector3( -0.2, -0.2, 0.3 )
+bullet_scene = ExtResource( 2 )
+bullet_instance = Vector3( 0, 0, 0.3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fire = SubResource( 1 )
+anims/fire2 = SubResource( 2 )
+
+[node name="Anim_point" type="Spatial" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Anim_point"]
+transform = Transform( 7.54979e-008, 0, 1, 0, 0.999999, 0, -0.999999, 0, 7.54978e-008, 0, 0.119512, 0 )
+pixel_size = 0.0008
+texture = ExtResource( 3 )

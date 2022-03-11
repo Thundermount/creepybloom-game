@@ -1,0 +1,273 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://map/planks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/RoomGen.gd" type="Script" id=2]
+[ext_resource path="res://map/Brickwall_shrinked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/rock_floor_3d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/misc/red_fire/red_fire.tscn" type="PackedScene" id=5]
+
+[node name="World" type="Spatial"]
+
+[node name="map" type="StaticBody" parent="."]
+
+[node name="planks3" parent="map" instance=ExtResource( 1 )]
+
+[node name="planks4" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="planks14" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="planks5" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="planks6" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="planks11" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+
+[node name="planks7" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2 )
+
+[node name="planks12" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4 )
+
+[node name="planks9" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+
+[node name="planks13" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4 )
+
+[node name="planks8" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+
+[node name="planks10" parent="map" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="RoomSpawner" parent="map" instance=ExtResource( 1 )]
+editor/display_folded = false
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -8, 0, -4 )
+shape = null
+script = ExtResource( 2 )
+
+[node name="Brickwall_shrinked5" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0 )
+
+[node name="Brickwall_shrinked6" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2 )
+
+[node name="Brickwall_shrinked7" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -4 )
+
+[node name="Brickwall_shrinked8" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 1, -5 )
+
+[node name="Brickwall_shrinked9" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -2, 1, -5 )
+
+[node name="Brickwall_shrinked10" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -4, 1, -5 )
+
+[node name="Brickwall_shrinked11" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -6, 1, -5 )
+
+[node name="Brickwall_shrinked12" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7, 1, -2 )
+
+[node name="Brickwall_shrinked13" parent="map" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7, 1, 4.76837e-007 )
+
+[node name="Brickwall_shrinked14" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -6, 1, 1 )
+
+[node name="Brickwall_shrinked15" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -4, 1, 1 )
+
+[node name="Brickwall_shrinked16" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -2, 1, 1 )
+
+[node name="rock_floor_3d3" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, 0 )
+
+[node name="rock_floor_3d4" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, 0 )
+
+[node name="rock_floor_3d5" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, 0 )
+
+[node name="rock_floor_3d6" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, 0 )
+
+[node name="rock_floor_3d7" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, -2 )
+
+[node name="rock_floor_3d8" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, -4 )
+
+[node name="rock_floor_3d9" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, -4 )
+
+[node name="rock_floor_3d10" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, -2 )
+
+[node name="rock_floor_3d11" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, -2 )
+
+[node name="rock_floor_3d12" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, -4 )
+
+[node name="rock_floor_3d13" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -4 )
+
+[node name="rock_floor_3d14" parent="map" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -2 )
+
+[node name="red_fire" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58384, 0.621492, -1.64025 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="planks21" parent="Area" instance=ExtResource( 1 )]
+visible = false
+
+[node name="planks18" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+visible = false
+
+[node name="planks15" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+visible = false
+
+[node name="planks16" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+visible = false
+
+[node name="planks19" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+visible = false
+
+[node name="planks17" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
+visible = false
+
+[node name="planks22" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2 )
+visible = false
+
+[node name="planks20" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4 )
+visible = false
+
+[node name="planks23" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+visible = false
+
+[node name="planks25" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4 )
+visible = false
+
+[node name="planks24" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+visible = false
+
+[node name="planks26" parent="Area" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+visible = false
+
+[node name="Brickwall_shrinked17" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0 )
+visible = false
+
+[node name="Brickwall_shrinked20" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2 )
+visible = false
+
+[node name="Brickwall_shrinked28" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -4 )
+visible = false
+
+[node name="Brickwall_shrinked19" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 1, -5 )
+visible = false
+
+[node name="Brickwall_shrinked23" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -2, 1, -5 )
+visible = false
+
+[node name="Brickwall_shrinked21" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -4, 1, -5 )
+visible = false
+
+[node name="Brickwall_shrinked25" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -6, 1, -5 )
+visible = false
+
+[node name="Brickwall_shrinked18" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7, 1, -2 )
+visible = false
+
+[node name="Brickwall_shrinked24" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7, 1, 4.76837e-007 )
+visible = false
+
+[node name="Brickwall_shrinked22" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -6, 1, 1 )
+visible = false
+
+[node name="Brickwall_shrinked26" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -4, 1, 1 )
+visible = false
+
+[node name="Brickwall_shrinked27" parent="Area" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -2, 1, 1 )
+visible = false
+
+[node name="rock_floor_3d25" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, 0 )
+visible = false
+
+[node name="rock_floor_3d19" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, 0 )
+visible = false
+
+[node name="rock_floor_3d23" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, 0 )
+visible = false
+
+[node name="rock_floor_3d16" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, 0 )
+visible = false
+
+[node name="rock_floor_3d15" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, -2 )
+visible = false
+
+[node name="rock_floor_3d22" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.56181, -4 )
+visible = false
+
+[node name="rock_floor_3d26" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, -4 )
+visible = false
+
+[node name="rock_floor_3d18" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.56181, -2 )
+visible = false
+
+[node name="rock_floor_3d24" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, -2 )
+visible = false
+
+[node name="rock_floor_3d17" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.56181, -4 )
+visible = false
+
+[node name="rock_floor_3d21" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -4 )
+visible = false
+
+[node name="rock_floor_3d20" parent="Area" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56181, -2 )
+visible = false
+[connection signal="body_entered" from="Area" to="map/RoomSpawner" method="_on_Area_body_entered"]

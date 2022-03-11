@@ -1,0 +1,32 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://map/effects/WorldEnvironment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://map/Rooms/Hallway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/Brickwall_shrinked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/Rooms/func/RoomProperties.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map/Rooms/Angle_left.tscn" type="PackedScene" id=5]
+[ext_resource path="res://map/Rooms/Room_medium_left.tscn" type="PackedScene" id=6]
+[ext_resource path="res://map/Rooms/Angle_right.tscn" type="PackedScene" id=7]
+[ext_resource path="res://map/Rooms/Room_medium_forward.tscn" type="PackedScene" id=8]
+[ext_resource path="res://map/Rooms/func/FlyingCamera.tscn" type="PackedScene" id=9]
+
+[node name="World" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 1 )]
+
+[node name="Start" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00114536, 0.00212002, 0.00185585 )
+
+[node name="map" type="StaticBody" parent="."]
+
+[node name="Brickwall_shrinked" parent="map" instance=ExtResource( 3 )]
+transform = Transform( 6.70552e-008, 0, -1, 0, 1, 0, 1, 0, 6.70552e-008, 0, 1, 1 )
+
+[node name="RoomProperties" parent="." instance=ExtResource( 4 )]
+Room_max = 30
+LeftRooms = [ ExtResource( 5 ), ExtResource( 6 ) ]
+RightRooms = [ ExtResource( 7 ) ]
+ForwardRooms = [ ExtResource( 2 ), ExtResource( 8 ) ]
+
+[node name="FlyingCamera" parent="." instance=ExtResource( 9 )]

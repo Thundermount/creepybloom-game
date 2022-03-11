@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/PlayerStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+HP = 3
+MAX_HP = 9
+damage = 1
+bullet_lifetime = 5.0
+push_force = 1
+Attack_speed = 1
+Lives = 3
+MAX_lives = 9

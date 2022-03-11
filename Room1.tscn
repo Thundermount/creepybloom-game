@@ -1,0 +1,994 @@
+[gd_scene load_steps=59 format=2]
+
+[ext_resource path="res://items/soldier_figuere.tscn" type="PackedScene" id=1]
+[ext_resource path="res://map/planks.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/BrickWall_3d.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/rock_floor_3d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map/effects/Decal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/decals/decal.shader" type="Shader" id=6]
+[ext_resource path="res://sprites/blood/bloodsplash8.png" type="Texture" id=7]
+[ext_resource path="res://sprites/blood/bloodsplash4.png" type="Texture" id=8]
+[ext_resource path="res://sprites/blood/bloodsplash9.png" type="Texture" id=9]
+[ext_resource path="res://map/brickwall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/blood/bloodsplash6.png" type="Texture" id=11]
+[ext_resource path="res://map/rock_floor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://map/furniture/Table.tscn" type="PackedScene" id=13]
+[ext_resource path="res://items/misc/red_fire/red_fire.tscn" type="PackedScene" id=14]
+[ext_resource path="res://map/Brickwall_shrinked.tscn" type="PackedScene" id=15]
+[ext_resource path="res://map/Decorations/Decor2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://map/Decorations/Decor1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://map/BrickDoorway.tscn" type="PackedScene" id=18]
+[ext_resource path="res://items/misc/Candle.tscn" type="PackedScene" id=19]
+[ext_resource path="res://map/furniture/Door_red.tscn" type="PackedScene" id=20]
+[ext_resource path="res://map/MarbleFloor.tscn" type="PackedScene" id=21]
+[ext_resource path="res://items/misc/fakel/Fakel.tscn" type="PackedScene" id=22]
+[ext_resource path="res://map/furniture/Bookcase.tscn" type="PackedScene" id=23]
+[ext_resource path="res://map/effects/WorldEnvironment.tscn" type="PackedScene" id=24]
+[ext_resource path="res://FPS Counter.gd" type="Script" id=25]
+[ext_resource path="res://map/furniture/Door.tscn" type="PackedScene" id=26]
+[ext_resource path="res://items/misc/k/k_r.tscn" type="PackedScene" id=27]
+[ext_resource path="res://map/furniture/Woodcrate.tscn" type="PackedScene" id=28]
+[ext_resource path="res://map/furniture/Closet.tscn" type="PackedScene" id=29]
+[ext_resource path="res://addons/decals/decal.gd" type="Script" id=30]
+[ext_resource path="res://sprites/blood/bloodpent.png" type="Texture" id=31]
+[ext_resource path="res://map/func/EndLevelTrigger.tscn" type="PackedScene" id=32]
+[ext_resource path="res://enemies/Mask.tscn" type="PackedScene" id=33]
+[ext_resource path="res://items/Chair.tscn" type="PackedScene" id=34]
+[ext_resource path="res://items/Pickable/wings.tscn" type="PackedScene" id=35]
+[ext_resource path="res://items/Pickable/rainbow_syringe.tscn" type="PackedScene" id=36]
+[ext_resource path="res://enemies/Pinkamena.tscn" type="PackedScene" id=37]
+[ext_resource path="res://items/Pickable/pinkamena_scepeter.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=39]
+[ext_resource path="res://items/Pickable/knife_ofthe_fallen_human.tscn" type="PackedScene" id=40]
+[ext_resource path="res://map/misc/lever.tscn" type="PackedScene" id=41]
+[ext_resource path="res://map/misc/Doorway_grid.tscn" type="PackedScene" id=42]
+[ext_resource path="res://enemies/Parasprite.tscn" type="PackedScene" id=43]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( 0.149882, 0.369352, -1.40154, 0.549883, 0.369352, -1.50154, 0.549883, 0.369352, -2.70154, -0.650117, 0.369352, -2.70154, -0.650117, 0.369352, 4.39846, 0.549883, 0.369352, 4.39846, 0.149882, 0.369352, -1.00154, -0.650117, 0.369352, -2.70154, 0.149882, 0.369352, -1.00154, 0.149882, 0.369352, -1.40154, -0.650117, 0.369352, -2.70154, 0.549883, 0.369352, 4.39846, 0.549883, 0.369352, -0.901535, 0.149882, 0.369352, -1.00154, 5.04988, 2.36935, 2.99846, 6.74988, 2.16935, 2.79846, 4.94988, 2.16935, 2.79846, 5.04988, 2.36935, 2.99846, 4.94988, 2.16935, 2.79846, 4.74988, 2.36935, 3.09846, 4.74988, 2.36935, 4.69846, 5.04988, 2.36935, 4.69846, 3.14988, 2.36935, -0.401535, 3.04988, 2.36935, -0.901535, 2.64988, 2.36935, -0.901535, 3.04988, 2.36935, -0.101535, 6.94988, 2.16935, -1.10154, 6.74988, 2.16935, -1.10154, 6.64988, 2.16935, -0.401535, 6.64988, 2.16935, -0.201535, 6.84988, 2.16935, 0.798465, 5.04988, 2.36935, 4.69846, 4.74988, 2.36935, 4.69846, 3.14988, 2.36935, 4.79846, 2.64988, 2.36935, 4.89846, 8.84988, 2.36935, 4.99846, 6.94988, 2.16935, 4.79846, 3.68322, 2.16935, 4.76513, 6.64988, 2.16935, -0.201535, 6.64988, 2.16935, -0.401535, 3.14988, 2.36935, -0.401535, 3.04988, 2.36935, -0.101535, 8.84988, 2.36935, 4.99846, 8.84988, 2.36935, 4.59846, 7.04988, 2.16935, 4.59846, 6.94988, 2.16935, 4.79846, 2.64988, 2.36935, 4.89846, 3.14988, 2.36935, 4.79846, 3.04988, 2.36935, -0.101535, 2.64988, 2.36935, -0.901535, 5.84988, 0.369352, 4.49846, 5.84988, 0.369352, 4.89846, 5.94988, 0.369352, 4.89846, 6.04988, 0.369352, 4.39846, 7.34988, 0.369352, 1.69846, 7.34988, 0.369352, 2.09846, 7.74988, 0.369352, 2.19846, 6.94988, 0.369352, 1.79846, 6.84988, 0.369352, 1.99846, 7.34988, 0.369352, 2.09846, 7.34988, 0.369352, 1.69846, 7.24988, 0.369352, 3.19846, 8.44988, 0.369352, 2.29846, 7.74988, 0.369352, 2.19846, 7.74988, 0.369352, -0.501535, 8.44988, 0.369352, -0.701535, 7.24988, 0.369352, -0.701535, 5.44988, 0.369352, 4.39846, 5.84988, 0.369352, 4.49846, 6.04988, 0.369352, 4.39846, 6.04988, 0.369352, 4.39846, 6.64988, 0.369352, 4.39846, 6.74988, 0.369352, 4.19846, 5.44988, 0.369352, 3.29846, 5.44988, 0.369352, 4.39846, 6.04988, 0.369352, 4.39846, 6.74988, 0.369352, 4.19846, 7.24988, 0.369352, 3.19846, 7.34988, 0.369352, 2.09846, 7.24988, 0.369352, 3.19846, 7.74988, 0.369352, 2.19846, 7.74988, 0.369352, -0.501535, 7.24988, 0.369352, -0.701535, 7.34988, 0.369352, 1.69846, 7.74988, 0.369352, 2.19846, 7.24988, 0.369352, 3.19846, 6.74988, 0.369352, 4.19846, 8.44988, 0.369352, 4.19846, 8.44988, 0.369352, 2.29846, 6.24988, 0.369352, 1.99846, 6.44988, 0.369352, 2.39846, 6.44988, 0.369352, 2.09846, 3.84988, 0.369352, 4.89846, 3.94988, 0.369352, 4.89846, 3.94988, 0.369352, 4.49846, 3.84988, 0.369352, 4.49846, 4.54988, 0.369352, 2.49846, 5.64988, 0.369352, 2.39846, 5.84988, 0.369352, 1.99846, 6.44988, 0.369352, 2.09846, 6.84988, 0.369352, 1.99846, 6.94988, 0.369352, 1.79846, 6.44988, 0.369352, 1.69846, 6.24988, 0.369352, 1.99846, 3.44988, 0.369352, 0.198465, 4.34988, 0.369352, 2.79846, 4.54988, 0.369352, 2.49846, 5.84988, 0.369352, 1.99846, 6.44988, 0.369352, 1.69846, 6.34988, 0.369352, 0.198465, 3.44988, 0.369352, 0.198465, 4.54988, 0.369352, 2.49846, 3.44988, 0.369352, 4.39846, 3.84988, 0.369352, 4.49846, 3.94988, 0.369352, 4.49846, 4.34988, 0.369352, 4.39846, 4.34988, 0.369352, 2.79846, 3.44988, 0.369352, 0.198465, 5.84988, 0.369352, 1.99846, 6.24988, 0.369352, 1.99846, 6.44988, 0.369352, 1.69846, 0.949883, 2.36935, 3.09846, 0.949883, 2.36935, 4.89846, 1.34988, 2.36935, 4.89846, 1.34988, 2.36935, 3.09846, 2.74988, 0.369352, 6.39847, 3.04988, 0.369352, 6.29846, 3.14988, 0.369352, 5.39847, 0.649882, 0.369352, 5.29846, 0.649882, 0.369352, 5.29846, 0.549883, 0.369352, 4.39846, -0.650117, 0.369352, 4.39846, -0.750117, 0.369352, 5.29846, 2.74988, 0.369352, 6.69846, 2.74988, 0.369352, 6.39847, 0.649882, 0.369352, 5.29846, -0.750117, 0.369352, 5.29846, -1.55012, 0.369352, 6.69846, -0.750117, 0.369352, 5.29846, -1.55012, 0.369352, 5.29846, -1.55012, 0.369352, 6.69846, -5.05012, 2.36935, 4.99846, -1.05012, 2.16935, 4.79846, -6.85012, 2.16935, 4.79846, -6.85012, 2.36935, 7.19846, -1.05012, 2.36935, 7.19846, -4.95012, 2.56935, 7.09846, -6.37512, 2.16935, 7.17346, -6.27012, 2.16935, 7.19846, -4.39297, 2.16935, 7.11275, -6.85012, 2.36935, 7.19846, -4.95012, 2.56935, 7.09846, -5.05012, 2.36935, 4.99846, -6.85012, 2.16935, 4.79846, -6.85012, 2.56935, 5.39846, -6.37512, 2.16935, 7.17346, -5.02512, 2.56935, 5.52346, 6.04988, 0.369352, 5.39847, 5.94988, 0.369352, 4.89846, 5.84988, 0.369352, 4.89846, 5.64988, 0.369352, 5.39847, 7.04988, 0.369352, 5.69846, 6.04988, 0.369352, 5.39847, 5.64988, 0.369352, 5.39847, 4.04988, 0.369352, 5.39847, 3.94988, 0.369352, 4.89846, 3.84988, 0.369352, 4.89846, 3.64988, 0.369352, 5.39847, 3.34988, 0.369352, 6.39847, 8.94988, 0.369352, 5.79846, 8.94988, 0.369352, 5.39847, 7.64988, 0.369352, 5.39847, 7.54988, 0.369352, 5.69846, 8.94988, 0.369352, 6.69846, 9.14988, 0.369352, 5.89847, 8.94988, 0.369352, 5.79846, 7.54988, 0.369352, 5.69846, 7.04988, 0.369352, 5.69846, 3.14988, 0.369352, 5.39847, 3.04988, 0.369352, 6.29846, 3.34988, 0.369352, 6.39847, 3.64988, 0.369352, 5.39847, 7.04988, 0.369352, 5.69846, 6.94988, 0.369352, 5.39847, 6.04988, 0.369352, 5.39847, 4.04988, 0.369352, 5.39847, 3.34988, 0.369352, 6.39847, 3.34988, 0.369352, 6.69846, 8.94988, 0.369352, 6.69846, 7.04988, 0.369352, 5.69846, 5.64988, 0.369352, 5.39847, 13.0499, 2.36935, 5.09846, 13.0499, 2.36935, 6.89847, 13.4499, 2.36935, 6.89847, 13.4499, 2.36935, 5.09846, -6.05012, 0.369352, 7.09846, -5.85012, 0.369352, 7.09846, -5.75012, 0.369352, 6.59846, -6.15012, 0.369352, 6.59846, -5.75012, 0.369352, 6.59846, -1.55012, 0.369352, 6.69846, -1.55012, 0.369352, 5.29846, -6.65012, 0.369352, 5.29846, -6.65012, 0.369352, 5.29846, -6.65012, 0.369352, 6.59846, -6.15012, 0.369352, 6.59846, -6.65012, 0.369352, 5.29846, -6.15012, 0.369352, 6.59846, -5.75012, 0.369352, 6.59846, 9.94988, 0.369352, 5.79846, 9.64988, 0.369352, 5.89847, 9.64988, 0.369352, 6.09846, 9.94988, 0.369352, 6.19846, 9.94988, 0.369352, 5.29846, 9.94988, 0.369352, 5.79846, 11.2499, 0.369352, 6.69846, 12.6499, 0.369352, 7.29846, 12.6499, 0.369352, 5.29846, 9.94988, 0.369352, 6.19846, 9.94988, 0.369352, 6.69846, 11.2499, 0.369352, 6.69846, 11.2499, 0.369352, 6.69846, 11.3499, 0.369352, 7.39847, 12.6499, 0.369352, 7.29846, 9.94988, 0.369352, 5.79846, 9.94988, 0.369352, 6.19846, 11.2499, 0.369352, 6.69846, -8.55012, 2.36935, 6.99846, -7.15012, 2.16935, 6.89847, -8.85012, 2.16935, 6.79846, -8.85012, 2.36935, 12.8985, -8.55012, 2.36935, 12.8985, -8.55012, 2.36935, 6.99846, -8.85012, 2.16935, 6.79846, -3.65012, 0.369352, 7.89847, -3.25012, 0.369352, 7.79846, -3.25012, 0.369352, 7.59846, -5.75012, 0.369352, 7.59846, -5.75012, 0.369352, 7.59846, -5.85012, 0.369352, 7.09846, -6.05012, 0.369352, 7.09846, -6.15012, 0.369352, 7.59846, -3.65012, 0.369352, 10.4985, -6.15012, 0.369352, 7.59846, -7.15012, 0.369352, 7.59846, -8.15012, 0.369352, 11.9985, -3.25012, 0.369352, 11.9985, -2.85012, 0.369352, 8.59846, -2.85012, 0.369352, 8.49846, -3.65012, 0.369352, 8.49846, -7.15012, 0.369352, 7.59846, -7.25012, 0.369352, 7.29846, -8.15012, 0.369352, 7.29846, -8.15012, 0.369352, 11.9985, -2.85012, 0.369352, 9.89847, -2.75012, 0.369352, 9.89847, -2.85012, 0.369352, 8.59846, -3.65012, 0.369352, 9.89847, -2.85012, 0.369352, 9.89847, -2.85012, 0.369352, 8.59846, -3.65012, 0.369352, 8.49846, -3.65012, 0.369352, 10.4985, -3.65012, 0.369352, 9.89847, -6.15012, 0.369352, 7.59846, -3.25012, 0.369352, 11.9985, -3.25012, 0.369352, 10.5985, -3.65012, 0.369352, 10.4985, -3.65012, 0.369352, 8.49846, -5.75012, 0.369352, 7.59846, -6.15012, 0.369352, 7.59846, -3.65012, 0.369352, 9.89847, -3.65012, 0.369352, 8.49846, -3.65012, 0.369352, 7.89847, -5.75012, 0.369352, 7.59846, 11.3499, 0.369352, 7.39847, 11.3499, 0.369352, 12.4985, 12.6499, 0.369352, 12.3985, 12.6499, 0.369352, 7.29846, -3.25012, 0.369352, 7.59846, -3.25012, 0.369352, 7.79846, -2.85012, 0.369352, 7.89847, -2.85012, 0.369352, 8.49846, -2.85012, 0.369352, 8.59846, -2.25012, 0.369352, 8.29846, -2.85012, 0.369352, 7.89847, -2.85012, 0.369352, 8.49846, -2.25012, 0.369352, 8.29846, -2.25012, 0.369352, 8.29846, -1.55012, 0.369352, 8.49846, -1.55012, 0.369352, 7.59846, -3.25012, 0.369352, 7.59846, -2.85012, 0.369352, 7.89847, -2.75012, 0.369352, 9.89847, -2.85012, 0.369352, 9.89847, -2.85012, 0.369352, 10.4985, -1.55012, 0.369352, 9.89847, -2.75012, 0.369352, 9.89847, -2.85012, 0.369352, 10.4985, -2.85012, 0.369352, 10.4985, -3.25012, 0.369352, 10.5985, -3.25012, 0.369352, 11.9985, -1.55012, 0.369352, 11.9985, -1.55012, 0.369352, 9.89847, -2.85012, 0.369352, 10.4985, -3.25012, 0.369352, 11.9985, 12.6499, 0.369352, 13.0985, 12.6499, 0.369352, 12.3985, 11.3499, 0.369352, 12.4985, 11.2499, 0.369352, 13.2985, 13.5499, 0.369352, 16.3985, 13.5499, 0.369352, 16.0985, 12.8499, 0.369352, 13.2985, 11.2499, 0.369352, 13.2985, 10.2499, 0.369352, 15.9985, 10.3499, 0.369352, 16.3985, 12.8499, 0.369352, 13.2985, 12.6499, 0.369352, 13.0985, 11.2499, 0.369352, 13.2985, 9.94988, 0.369352, 13.2985, 9.94988, 0.369352, 15.9985, 10.2499, 0.369352, 15.9985, 11.2499, 0.369352, 13.2985, 13.5499, 0.369352, 16.0985, 13.9499, 0.369352, 15.9985, 13.9499, 0.369352, 13.2985, 12.8499, 0.369352, 13.2985, 6.94988, 2.16935, 12.8985, 6.94988, 2.16935, 22.6985, 7.04988, 2.16935, 12.9985, 6.94988, 2.16935, 12.8985, 7.04988, 2.16935, 12.9985, 10.7499, 2.16935, 12.8985, 16.9499, 2.16935, 22.6985, 7.14988, 2.16935, 22.7985, 17.0499, 2.16935, 22.7985, 17.0499, 2.16935, 12.7985, 13.2499, 2.16935, 12.7985, 16.9499, 2.16935, 12.9985, 17.0499, 2.16935, 22.7985, 17.0499, 2.16935, 12.7985, 16.9499, 2.16935, 12.9985, 16.9499, 2.16935, 22.6985, 7.44988, 0.369352, 16.3985, 9.54988, 0.369352, 16.3985, 9.54988, 0.369352, 16.0985, 7.44988, 0.369352, 16.3985, 9.54988, 0.369352, 16.0985, 9.94988, 0.369352, 15.9985, 9.94988, 0.369352, 13.2985, 7.44988, 0.369352, 13.2985, 14.2499, 0.369352, 15.9985, 14.3499, 0.369352, 16.3985, 16.5499, 0.369352, 16.3985, 16.5499, 0.369352, 13.2985, 13.9499, 0.369352, 13.2985, 13.9499, 0.369352, 13.2985, 13.9499, 0.369352, 15.9985, 14.2499, 0.369352, 15.9985, 9.74988, 0.369352, 19.9985, 9.94988, 0.369352, 19.9985, 9.94988, 0.369352, 18.7985, 9.54988, 0.369352, 18.6985, 7.44988, 0.369352, 19.8985, 9.54988, 0.369352, 16.6985, 9.54988, 0.369352, 16.3985, 7.44988, 0.369352, 16.3985, 9.54988, 0.369352, 18.0985, 9.94988, 0.369352, 17.9985, 9.94988, 0.369352, 16.7985, 9.54988, 0.369352, 16.6985, 7.44988, 0.369352, 16.3985, 7.44988, 0.369352, 19.8985, 9.54988, 0.369352, 18.6985, 9.54988, 0.369352, 18.0985, 7.44988, 0.369352, 16.3985, 9.94988, 0.369352, 16.7985, 9.94988, 0.369352, 17.9985, 10.2499, 0.369352, 17.9985, 10.2499, 0.369352, 16.7985, 13.5499, 0.369352, 16.6985, 13.5499, 0.369352, 16.3985, 10.3499, 0.369352, 16.3985, 13.5499, 0.369352, 18.0985, 13.9499, 0.369352, 17.9985, 13.9499, 0.369352, 16.7985, 13.5499, 0.369352, 16.6985, 10.3499, 0.369352, 18.3985, 13.5499, 0.369352, 18.3985, 13.5499, 0.369352, 18.0985, 10.3499, 0.369352, 16.3985, 10.2499, 0.369352, 16.7985, 10.2499, 0.369352, 17.9985, 10.3499, 0.369352, 18.3985, 13.5499, 0.369352, 18.0985, 13.5499, 0.369352, 16.6985, 13.9499, 0.369352, 16.7985, 13.9499, 0.369352, 17.9985, 14.2499, 0.369352, 17.9985, 14.2499, 0.369352, 16.7985, 14.3499, 0.369352, 16.3985, 14.2499, 0.369352, 16.7985, 14.2499, 0.369352, 17.9985, 14.3499, 0.369352, 18.3985, 16.5499, 0.369352, 18.3985, 16.5499, 0.369352, 16.3985, 9.94988, 0.369352, 18.7985, 9.94988, 0.369352, 19.9985, 10.2499, 0.369352, 19.9985, 10.2499, 0.369352, 18.7985, 13.5499, 0.369352, 18.6985, 13.5499, 0.369352, 18.3985, 10.3499, 0.369352, 18.3985, 13.6499, 0.369352, 19.9985, 13.9499, 0.369352, 19.9985, 13.9499, 0.369352, 18.7985, 13.5499, 0.369352, 18.6985, 13.5499, 0.369352, 20.1985, 13.6499, 0.369352, 19.9985, 13.5499, 0.369352, 18.6985, 10.3499, 0.369352, 18.3985, 10.2499, 0.369352, 18.7985, 10.3499, 0.369352, 20.1985, 10.2499, 0.369352, 18.7985, 10.2499, 0.369352, 19.9985, 10.3499, 0.369352, 20.1985, 13.9499, 0.369352, 18.7985, 13.9499, 0.369352, 19.9985, 14.2499, 0.369352, 19.9985, 14.2499, 0.369352, 18.7985, 14.3499, 0.369352, 18.3985, 14.2499, 0.369352, 18.7985, 14.2499, 0.369352, 19.9985, 14.3499, 0.369352, 20.3985, 16.5499, 0.369352, 20.3985, 16.5499, 0.369352, 18.3985, 9.94988, 0.369352, 22.3985, 9.94988, 0.369352, 20.7985, 9.54988, 0.369352, 20.6985, 9.54988, 0.369352, 20.0985, 9.74988, 0.369352, 19.9985, 7.44988, 0.369352, 19.8985, 9.54988, 0.369352, 20.6985, 9.54988, 0.369352, 20.0985, 7.44988, 0.369352, 19.8985, 9.54988, 0.369352, 20.6985, 7.44988, 0.369352, 19.8985, 7.44988, 0.369352, 22.3985, 9.94988, 0.369352, 22.3985, 9.94988, 0.369352, 22.3985, 13.9499, 0.369352, 22.3985, 13.9499, 0.369352, 20.7985, 13.5499, 0.369352, 20.6985, 10.3499, 0.369352, 20.6985, 9.94988, 0.369352, 20.7985, 13.5499, 0.369352, 20.6985, 13.5499, 0.369352, 20.1985, 10.3499, 0.369352, 20.1985, 10.3499, 0.369352, 20.6985, 14.2499, 0.369352, 20.7985, 13.9499, 0.369352, 20.7985, 13.9499, 0.369352, 22.3985, 14.3499, 0.369352, 20.3985, 14.2499, 0.369352, 20.7985, 13.9499, 0.369352, 22.3985, 16.5499, 0.369352, 22.3985, 16.5499, 0.369352, 20.3985 )
+polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 7, 4, 6 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 10, 8, 9 ), PoolIntArray( 13, 11, 12 ), PoolIntArray( 16, 14, 15 ), PoolIntArray( 21, 17, 20 ), PoolIntArray( 17, 19, 20 ), PoolIntArray( 17, 18, 19 ), PoolIntArray( 25, 22, 24 ), PoolIntArray( 22, 23, 24 ), PoolIntArray( 30, 26, 29 ), PoolIntArray( 26, 28, 29 ), PoolIntArray( 26, 27, 28 ), PoolIntArray( 36, 31, 35 ), PoolIntArray( 31, 32, 35 ), PoolIntArray( 32, 37, 35 ), PoolIntArray( 37, 33, 35 ), PoolIntArray( 33, 34, 35 ), PoolIntArray( 41, 38, 40 ), PoolIntArray( 38, 39, 40 ), PoolIntArray( 45, 42, 44 ), PoolIntArray( 42, 43, 44 ), PoolIntArray( 49, 46, 48 ), PoolIntArray( 46, 47, 48 ), PoolIntArray( 53, 50, 52 ), PoolIntArray( 50, 51, 52 ), PoolIntArray( 56, 54, 55 ), PoolIntArray( 60, 57, 59 ), PoolIntArray( 57, 58, 59 ), PoolIntArray( 63, 61, 62 ), PoolIntArray( 66, 64, 65 ), PoolIntArray( 69, 67, 68 ), PoolIntArray( 72, 70, 71 ), PoolIntArray( 77, 73, 76 ), PoolIntArray( 73, 75, 76 ), PoolIntArray( 73, 74, 75 ), PoolIntArray( 80, 78, 79 ), PoolIntArray( 84, 81, 83 ), PoolIntArray( 81, 82, 83 ), PoolIntArray( 88, 85, 87 ), PoolIntArray( 85, 86, 87 ), PoolIntArray( 91, 89, 90 ), PoolIntArray( 95, 92, 94 ), PoolIntArray( 92, 93, 94 ), PoolIntArray( 98, 96, 97 ), PoolIntArray( 103, 99, 102 ), PoolIntArray( 99, 100, 102 ), PoolIntArray( 100, 101, 102 ), PoolIntArray( 106, 104, 105 ), PoolIntArray( 111, 107, 110 ), PoolIntArray( 107, 108, 110 ), PoolIntArray( 108, 109, 110 ), PoolIntArray( 117, 112, 116 ), PoolIntArray( 112, 113, 116 ), PoolIntArray( 113, 114, 116 ), PoolIntArray( 114, 115, 116 ), PoolIntArray( 120, 118, 119 ), PoolIntArray( 124, 121, 123 ), PoolIntArray( 121, 122, 123 ), PoolIntArray( 128, 125, 127 ), PoolIntArray( 125, 126, 127 ), PoolIntArray( 132, 129, 131 ), PoolIntArray( 129, 130, 131 ), PoolIntArray( 137, 133, 136 ), PoolIntArray( 133, 135, 136 ), PoolIntArray( 133, 134, 135 ), PoolIntArray( 140, 138, 139 ), PoolIntArray( 143, 141, 142 ), PoolIntArray( 146, 147, 149 ), PoolIntArray( 147, 144, 149 ), PoolIntArray( 144, 148, 149 ), PoolIntArray( 148, 145, 149 ), PoolIntArray( 153, 154, 152 ), PoolIntArray( 154, 156, 152 ), PoolIntArray( 154, 151, 156 ), PoolIntArray( 154, 155, 151 ), PoolIntArray( 154, 150, 155 ), PoolIntArray( 160, 157, 159 ), PoolIntArray( 157, 158, 159 ), PoolIntArray( 163, 161, 162 ), PoolIntArray( 168, 164, 167 ), PoolIntArray( 164, 166, 167 ), PoolIntArray( 164, 165, 166 ), PoolIntArray( 172, 169, 171 ), PoolIntArray( 169, 170, 171 ), PoolIntArray( 177, 173, 176 ), PoolIntArray( 173, 175, 176 ), PoolIntArray( 173, 174, 175 ), PoolIntArray( 181, 178, 180 ), PoolIntArray( 178, 179, 180 ), PoolIntArray( 184, 182, 183 ), PoolIntArray( 190, 185, 189 ), PoolIntArray( 185, 186, 189 ), PoolIntArray( 186, 187, 189 ), PoolIntArray( 187, 188, 189 ), PoolIntArray( 194, 191, 193 ), PoolIntArray( 191, 192, 193 ), PoolIntArray( 198, 195, 197 ), PoolIntArray( 195, 196, 197 ), PoolIntArray( 202, 199, 201 ), PoolIntArray( 199, 200, 201 ), PoolIntArray( 205, 203, 204 ), PoolIntArray( 208, 206, 207 ), PoolIntArray( 212, 209, 211 ), PoolIntArray( 209, 210, 211 ), PoolIntArray( 217, 213, 216 ), PoolIntArray( 213, 215, 216 ), PoolIntArray( 213, 214, 215 ), PoolIntArray( 220, 218, 219 ), PoolIntArray( 223, 221, 222 ), PoolIntArray( 226, 224, 225 ), PoolIntArray( 229, 227, 228 ), PoolIntArray( 233, 230, 232 ), PoolIntArray( 230, 231, 232 ), PoolIntArray( 237, 234, 236 ), PoolIntArray( 234, 235, 236 ), PoolIntArray( 241, 238, 240 ), PoolIntArray( 238, 239, 240 ), PoolIntArray( 246, 242, 245 ), PoolIntArray( 242, 243, 245 ), PoolIntArray( 243, 244, 245 ), PoolIntArray( 249, 247, 248 ), PoolIntArray( 253, 250, 252 ), PoolIntArray( 250, 251, 252 ), PoolIntArray( 256, 254, 255 ), PoolIntArray( 260, 257, 259 ), PoolIntArray( 257, 258, 259 ), PoolIntArray( 263, 261, 262 ), PoolIntArray( 266, 264, 265 ), PoolIntArray( 270, 267, 269 ), PoolIntArray( 267, 268, 269 ), PoolIntArray( 273, 271, 272 ), PoolIntArray( 277, 274, 276 ), PoolIntArray( 274, 275, 276 ), PoolIntArray( 280, 278, 279 ), PoolIntArray( 283, 281, 282 ), PoolIntArray( 286, 284, 285 ), PoolIntArray( 291, 287, 290 ), PoolIntArray( 287, 288, 290 ), PoolIntArray( 288, 289, 290 ), PoolIntArray( 294, 292, 293 ), PoolIntArray( 297, 295, 296 ), PoolIntArray( 300, 298, 299 ), PoolIntArray( 304, 301, 303 ), PoolIntArray( 301, 302, 303 ), PoolIntArray( 308, 305, 307 ), PoolIntArray( 305, 306, 307 ), PoolIntArray( 314, 309, 313 ), PoolIntArray( 309, 310, 313 ), PoolIntArray( 310, 312, 313 ), PoolIntArray( 310, 311, 312 ), PoolIntArray( 317, 315, 316 ), PoolIntArray( 321, 318, 320 ), PoolIntArray( 318, 319, 320 ), PoolIntArray( 325, 322, 324 ), PoolIntArray( 322, 323, 324 ), PoolIntArray( 328, 326, 327 ), PoolIntArray( 331, 329, 330 ), PoolIntArray( 334, 332, 333 ), PoolIntArray( 337, 335, 336 ), PoolIntArray( 341, 338, 340 ), PoolIntArray( 338, 339, 340 ), PoolIntArray( 344, 342, 343 ), PoolIntArray( 349, 345, 348 ), PoolIntArray( 345, 346, 348 ), PoolIntArray( 346, 347, 348 ), PoolIntArray( 354, 350, 353 ), PoolIntArray( 350, 351, 353 ), PoolIntArray( 351, 352, 353 ), PoolIntArray( 357, 355, 356 ), PoolIntArray( 362, 358, 361 ), PoolIntArray( 358, 359, 361 ), PoolIntArray( 359, 360, 361 ), PoolIntArray( 365, 363, 364 ), PoolIntArray( 370, 366, 369 ), PoolIntArray( 366, 368, 369 ), PoolIntArray( 366, 367, 368 ), PoolIntArray( 374, 371, 373 ), PoolIntArray( 371, 372, 373 ), PoolIntArray( 378, 375, 377 ), PoolIntArray( 375, 376, 377 ), PoolIntArray( 381, 379, 380 ), PoolIntArray( 385, 382, 384 ), PoolIntArray( 382, 383, 384 ), PoolIntArray( 388, 386, 387 ), PoolIntArray( 394, 389, 393 ), PoolIntArray( 389, 390, 393 ), PoolIntArray( 390, 391, 393 ), PoolIntArray( 391, 392, 393 ), PoolIntArray( 398, 395, 397 ), PoolIntArray( 395, 396, 397 ), PoolIntArray( 404, 399, 403 ), PoolIntArray( 399, 400, 403 ), PoolIntArray( 400, 401, 403 ), PoolIntArray( 401, 402, 403 ), PoolIntArray( 408, 405, 407 ), PoolIntArray( 405, 406, 407 ), PoolIntArray( 411, 409, 410 ), PoolIntArray( 415, 412, 414 ), PoolIntArray( 412, 413, 414 ), PoolIntArray( 421, 416, 420 ), PoolIntArray( 416, 417, 420 ), PoolIntArray( 417, 419, 420 ), PoolIntArray( 417, 418, 419 ), PoolIntArray( 424, 422, 423 ), PoolIntArray( 428, 425, 427 ), PoolIntArray( 425, 426, 427 ), PoolIntArray( 434, 429, 433 ), PoolIntArray( 429, 430, 433 ), PoolIntArray( 430, 431, 433 ), PoolIntArray( 431, 432, 433 ), PoolIntArray( 437, 435, 436 ), PoolIntArray( 440, 438, 439 ), PoolIntArray( 443, 441, 442 ), PoolIntArray( 447, 444, 446 ), PoolIntArray( 444, 445, 446 ), PoolIntArray( 453, 448, 452 ), PoolIntArray( 448, 451, 452 ), PoolIntArray( 448, 450, 451 ), PoolIntArray( 448, 449, 450 ), PoolIntArray( 457, 454, 456 ), PoolIntArray( 454, 455, 456 ), PoolIntArray( 460, 458, 459 ), PoolIntArray( 465, 461, 464 ), PoolIntArray( 461, 462, 464 ), PoolIntArray( 462, 463, 464 ) ]
+cell/size = 0.1
+agent/height = 0.42
+agent/radius = 0.19
+agent/max_climb = 0.2
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.053
+shader_param/decal = ExtResource( 7 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.0119
+shader_param/decal = ExtResource( 8 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.04082
+shader_param/decal = ExtResource( 9 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.0
+shader_param/decal = ExtResource( 11 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.10204
+shader_param/decal = ExtResource( 7 )
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.01
+shader_param/decal = ExtResource( 9 )
+
+[sub_resource type="CubeMesh" id=13]
+material = SubResource( 12 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 6 )
+shader_param/offset = Vector2( 0, 0 )
+shader_param/scale = Vector2( 1, 1 )
+shader_param/emulate_lighting = false
+shader_param/brightness = 0.0
+shader_param/decal = ExtResource( 31 )
+
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 14 )
+
+[node name="World" type="Spatial"]
+
+[node name="soldier_figuere" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241284, 0.381011, -1.75471 )
+continuous_cd = false
+
+[node name="soldier_figuere2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241284, 0.381011, -1.12011 )
+continuous_cd = false
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
+
+[node name="map" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+input_ray_pickable = false
+
+[node name="planks" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="BrickWall_3d" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13494, 0.959138, 3.95348 )
+
+[node name="BrickWall_3d4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2808, 0.959138, 5.98954 )
+
+[node name="BrickWall_3d2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83154, 0.959138, 3.9948 )
+
+[node name="BrickWall_3d5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83154, 0.959138, 1.9948 )
+
+[node name="BrickWall_3d6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83154, 0.959138, -0.00519991 )
+
+[node name="BrickWall_3d3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90271, 0.959138, 3.9948 )
+
+[node name="planks2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+
+[node name="planks6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="planks7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="rock_floor_3d" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-008, 0, -2.18595e-007, -2.50043, 0, 0, 0, 1, -5.8863, 1.8681, 6.04291 )
+
+[node name="planks8" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
+
+[node name="planks13" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6 )
+
+[node name="planks19" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6 )
+
+[node name="planks20" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6 )
+
+[node name="planks36" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8 )
+
+[node name="planks52" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8 )
+
+[node name="planks37" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 8 )
+
+[node name="planks47" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 8 )
+
+[node name="planks38" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10 )
+
+[node name="planks55" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 12 )
+
+[node name="planks48" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10 )
+
+[node name="planks56" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 12 )
+
+[node name="planks46" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10 )
+
+[node name="planks54" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 12 )
+
+[node name="Decal2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.19846, 0.848514, 12.7399 )
+mesh = SubResource( 3 )
+decal = ExtResource( 7 )
+brightness = 5.3
+
+[node name="Decal3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.300454, -4.07914, 0.721871, 12.5505 )
+mesh = SubResource( 5 )
+decal = ExtResource( 8 )
+brightness = 1.19
+
+[node name="Decal4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-008, -0.5, 0, 0.5, -2.18557e-008, 0, 0, 0, 0.356794, -5.63068, 0.833077, 12.5707 )
+mesh = SubResource( 7 )
+decal = ExtResource( 9 )
+brightness = 4.082
+
+[node name="Decal5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.364078, -4.79207, 0.857435, 12.5707 )
+mesh = SubResource( 7 )
+decal = ExtResource( 9 )
+brightness = 4.082
+
+[node name="planks53" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+editor/display_folded = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 10 )
+
+[node name="planks57" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12 )
+
+[node name="planks9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6 )
+
+[node name="planks10" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6 )
+
+[node name="planks12" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6 )
+
+[node name="planks49" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6 )
+
+[node name="planks14" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6 )
+
+[node name="planks15" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 6 )
+
+[node name="planks16" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8 )
+
+[node name="planks17" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10 )
+
+[node name="planks18" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12 )
+
+[node name="planks21" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14 )
+
+[node name="planks30" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16 )
+
+[node name="planks34" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 16 )
+
+[node name="planks24" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14 )
+
+[node name="planks31" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 14 )
+
+[node name="planks33" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 14 )
+
+[node name="planks25" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14 )
+
+[node name="planks45" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22 )
+
+[node name="planks41" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 22 )
+
+[node name="planks44" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 22 )
+
+[node name="planks32" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18 )
+
+[node name="planks40" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 20 )
+
+[node name="planks43" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 22 )
+
+[node name="planks35" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 18 )
+
+[node name="planks39" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 20 )
+
+[node name="planks42" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 22 )
+
+[node name="planks11" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4 )
+
+[node name="planks22" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2 )
+
+[node name="planks26" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
+
+[node name="planks28" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4 )
+
+[node name="planks29" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4 )
+
+[node name="planks50" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2 )
+
+[node name="planks51" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+
+[node name="planks27" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="planks23" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+
+[node name="brickwall" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.98385 )
+
+[node name="brickwall3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.914068, 1, -1.98062 )
+
+[node name="brickwall4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 0.845981, 1, -1.98062 )
+
+[node name="brickwall5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 0.845981, 1, 0.01938 )
+
+[node name="brickwall8" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 0.845981, 1, 2.01938 )
+
+[node name="brickwall10" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 12.9883, 0.999999, 7.93935 )
+
+[node name="brickwall11" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 12.9883, 0.999999, 9.93935 )
+
+[node name="brickwall12" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.41561e-007, 0, -1, 0, 1, 0, 1, 0, 1.41561e-007, 12.9883, 0.999999, 11.9394 )
+
+[node name="brickwall6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.914068, 1, 0.01938 )
+
+[node name="brickwall7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.914068, 1, 2.01938 )
+
+[node name="brickwall21" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -6.91407, 1, 6.01938 )
+
+[node name="brickwall30" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -5.91407, 1, 12.3108 )
+
+[node name="Decal6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 0.828357, 0, 0, 0, 0.203301, -6.84886, 0.760371, 12.4438 )
+mesh = SubResource( 9 )
+decal = ExtResource( 11 )
+
+[node name="brickwall38" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -7.91407, 1, 12.3108 )
+
+[node name="brickwall31" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -3.91407, 1, 12.3108 )
+
+[node name="brickwall32" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -1.91407, 1, 12.3108 )
+
+[node name="brickwall33" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -1.28395, 1, 10.0194 )
+
+[node name="brickwall39" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -1.28395, 1, 12.0194 )
+
+[node name="brickwall34" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, -1.28395, 1, 8.01938 )
+
+[node name="brickwall9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -0.914068, 1, 4.01938 )
+
+[node name="BrickWall_3d9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 7.95318, 0.81448, 4.80713 )
+
+[node name="brickwall26" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 1.81425, 1, 5.01938 )
+
+[node name="brickwall16" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0.00404882, 1, 6.97606 )
+
+[node name="brickwall17" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 2.00405, 1, 6.97606 )
+
+[node name="brickwall18" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 4.00405, 1, 6.97606 )
+
+[node name="BrickWall_3d7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.71176, 1, 8 )
+
+[node name="BrickWall_3d8" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.71176, 1, 10 )
+
+[node name="BrickWall_3d10" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.71176, 1, 12 )
+
+[node name="brickwall19" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 6.00405, 1, 6.97606 )
+
+[node name="brickwall28" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 8.00405, 1, 6.97606 )
+
+[node name="brickwall20" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 10.0041, 1, 6.97606 )
+
+[node name="brickwall24" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.74846e-007, 0, 1, 0, -1.74846e-007, 0, 1, 10.0041, 1, 5.01938 )
+
+[node name="brickwall35" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31135e-007, 0, -1, 0, 1, 0, 1, 0, 1.31135e-007, 8.74827, 1, 4.01938 )
+
+[node name="brickwall36" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31135e-007, 0, -1, 0, 1, 0, 1, 0, 1.31135e-007, 8.74827, 1, 2.01938 )
+
+[node name="brickwall37" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1.31135e-007, 0, -1, 0, 1, 0, 1, 0, 1.31135e-007, 8.74827, 1, 0.0193801 )
+
+[node name="brickwall27" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 1.74846e-007, 0, 1, 0, -1.74846e-007, 0, 1, 12.0041, 1, 5.01938 )
+
+[node name="brickwall22" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 11.0537, 1, 9.95989 )
+
+[node name="brickwall23" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 11.0537, 1, 11.9599 )
+
+[node name="rock_floor" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 0, 1.55313, -1.99124 )
+
+[node name="rock_floor2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -0.0026741, 1.55313, 0.000261426 )
+
+[node name="rock_floor3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -0.0026741, 1.55313, 2.00026 )
+
+[node name="rock_floor4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -0.0026741, 1.55313, 4.00026 )
+
+[node name="rock_floor5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -0.0026741, 1.55313, 6.00026 )
+
+[node name="rock_floor10" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 1.99733, 1.55313, 6.00026 )
+
+[node name="rock_floor11" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 3.99733, 1.55313, 6.00026 )
+
+[node name="rock_floor13" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 3.99733, 1.55313, 4.00026 )
+
+[node name="rock_floor50" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 5.99733, 1.55313, 4.00026 )
+
+[node name="rock_floor51" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.55313, 4.00026 )
+
+[node name="rock_floor58" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.55313, 2.00026 )
+
+[node name="rock_floor59" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.55313, 0.000259876 )
+
+[node name="rock_floor46" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 3.99733, 1.55313, 2.00026 )
+
+[node name="rock_floor47" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 5.99733, 1.55313, 2.00026 )
+
+[node name="rock_floor48" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 5.99733, 1.55313, 0.000259876 )
+
+[node name="rock_floor49" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 3.99733, 1.55313, 0.000259876 )
+
+[node name="rock_floor12" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 5.99733, 1.55313, 6.00026 )
+
+[node name="rock_floor57" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.55313, 6.00026 )
+
+[node name="rock_floor14" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.55313, 6.00026 )
+
+[node name="rock_floor15" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.55313, 6.00026 )
+
+[node name="rock_floor16" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.55313, 7.99469 )
+
+[node name="rock_floor17" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.55313, 11.9947 )
+
+[node name="rock_floor44" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1.0141e-007, -1, 0, 2.32, -4.37114e-008, 11.9973, 2.52597, 12.9658 )
+
+[node name="rock_floor19" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 13.9947 )
+
+[node name="rock_floor45" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.96703, 11.9947 )
+
+[node name="rock_floor20" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 13.9947 )
+
+[node name="rock_floor22" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 15.9947 )
+
+[node name="rock_floor65" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 13.9947 )
+
+[node name="rock_floor29" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 15.9947 )
+
+[node name="rock_floor30" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 15.9947 )
+
+[node name="rock_floor36" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 15.9947 )
+
+[node name="rock_floor42" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 13.9947 )
+
+[node name="rock_floor40" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 15.9947 )
+
+[node name="rock_floor43" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 13.9947 )
+
+[node name="rock_floor23" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 17.9947 )
+
+[node name="rock_floor28" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 17.9947 )
+
+[node name="rock_floor31" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 17.9947 )
+
+[node name="rock_floor37" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 17.9947 )
+
+[node name="rock_floor39" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 17.9947 )
+
+[node name="rock_floor24" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 19.9947 )
+
+[node name="rock_floor26" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 19.9947 )
+
+[node name="rock_floor33" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 19.9947 )
+
+[node name="rock_floor34" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 19.9947 )
+
+[node name="rock_floor38" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 19.9947 )
+
+[node name="rock_floor25" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 21.9947 )
+
+[node name="rock_floor27" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 21.9947 )
+
+[node name="rock_floor32" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 21.9947 )
+
+[node name="rock_floor35" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 21.9947 )
+
+[node name="rock_floor41" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 21.9947 )
+
+[node name="rock_floor18" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.55313, 9.99469 )
+
+[node name="rock_floor6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -2.00267, 1.55313, 6.00026 )
+
+[node name="Table" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15002, 0.262697, 9.18537 )
+
+[node name="Decal" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 5 )]
+transform = Transform( 0.292716, -0.196234, 8.77234e-009, 0, 2.03803e-009, 0.0455898, -0.130255, -0.447049, 1.99846e-008, -2.12742, 0.54708, 9.13632 )
+mesh = SubResource( 11 )
+decal = ExtResource( 7 )
+brightness = 10.204
+
+[node name="rock_floor7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -4.00267, 1.55313, 6.00026 )
+
+[node name="rock_floor9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -6.00267, 1.99076, 8.00026 )
+
+[node name="rock_floor21" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -8.00267, 1.99076, 8.00026 )
+
+[node name="rock_floor52" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -6.00267, 1.99076, 10.0003 )
+
+[node name="rock_floor61" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -6.00267, 1.99076, 12.0003 )
+
+[node name="rock_floor60" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -8.00267, 1.99076, 10.0003 )
+
+[node name="rock_floor64" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -8.00267, 1.99076, 12.0003 )
+
+[node name="rock_floor53" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -4.00267, 1.99076, 10.0003 )
+
+[node name="rock_floor63" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -4.00267, 1.99076, 12.0003 )
+
+[node name="rock_floor54" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -4.00267, 1.99076, 8.00026 )
+
+[node name="rock_floor55" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -2.00267, 1.99076, 8.00026 )
+
+[node name="rock_floor56" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -2.00267, 1.99076, 10.0003 )
+
+[node name="rock_floor62" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, -2.00267, 1.99076, 12.0003 )
+
+[node name="red_fire" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26899, 0.624257, 8.20882 )
+
+[node name="red_fire2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26899, 0.624257, 10.2088 )
+
+[node name="Brickwall_shrinked" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -1.9367, 0.984847, 4.83914 )
+
+[node name="Brickwall_shrinked31" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -1.9367, 0.984847, 7.13446 )
+
+[node name="Brickwall_shrinked5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1.04308e-007, 0, -1, 0, 1, 0, 1, 0, -1.04308e-007, 3.79903, 0.984847, -0.310331 )
+
+[node name="Brickwall_shrinked25" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1.04308e-007, 0, -1, 0, 1, 0, 1, 0, -1.04308e-007, 5.79903, 0.984847, -0.310331 )
+
+[node name="Brickwall_shrinked28" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1.91731e-007, 0, 1, 0, 1, 0, -1, 0, 1.91731e-007, 5.79903, 0.984847, 2.83646 )
+
+[node name="Brickwall_shrinked30" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, 1.4802e-007, 0, 1, 0, -1.4802e-007, 0, -1, 6.79903, 0.984847, -0.163539 )
+
+[node name="Brickwall_shrinked33" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1.91731e-007, 0, 1, 0, 1, 0, -1, 0, 1.91731e-007, 8.00647, 0.984847, -1.16354 )
+
+[node name="Brickwall_shrinked2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -3.9367, 0.984847, 4.83914 )
+
+[node name="Brickwall_shrinked32" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -3.9367, 0.984847, 7.13446 )
+
+[node name="Brickwall_shrinked3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -5.9367, 0.984847, 4.83914 )
+
+[node name="Brickwall_shrinked26" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 7.45058e-009, 0, -1, 0, 1, 0, 1, 0, 7.45058e-009, -7.9367, 0.984847, 6.83914 )
+
+[node name="Decor2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.763259, 0.676176, 6.90819 )
+
+[node name="Decor3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49263, 1.21119, 12.1996 )
+
+[node name="Decor6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20358, 0.554327, 12.1996 )
+
+[node name="Decor7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.31834, 1.2692, 12.1996 )
+
+[node name="Decor1" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048576, 1.12037, 6.91137 )
+
+[node name="Decor4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.04858, 1.12037, 12.2027 )
+
+[node name="Decor5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.04858, 1.12037, 12.2027 )
+
+[node name="BrickDoorway2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, 7.35137e-008, 0, 1, 0, -7.35137e-008, 0, -1, 9.43321, 0.86573, 5.99845 )
+
+[node name="BrickDoorway" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 18 )]
+transform = Transform( -2.98023e-008, 0, -1, 0, 1, 0, 1, 0, -2.98023e-008, 3.87913, 0.858314, 4.89581 )
+
+[node name="BrickDoorway5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 18 )]
+transform = Transform( -2.98023e-008, 0, -1, 0, 1, 0, 1, 0, -2.98023e-008, -5.95491, 0.910438, 7.10368 )
+
+[node name="Table2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 13 )]
+transform = Transform( -1, 0, 7.35137e-008, 0, 1, 0, -1.61751e-007, 0, -2.20029, 8.37621, 0.258795, 0.830594 )
+
+[node name="BrickDoorway4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, 7.35137e-008, 0, 1, 0, -7.35137e-008, 0, -1, 6.87913, 0.858314, 1.89581 )
+
+[node name="BrickDoorway3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 18 )]
+transform = Transform( -2.98023e-008, 0, -1, 0, 1, 0, 1, 0, -2.98023e-008, 5.87913, 0.858314, 4.89581 )
+
+[node name="Candle" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.29788, 0.524894, 1.35728 )
+
+[node name="Brickwall_shrinked4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8932, 0.965657, 7.9818 )
+
+[node name="Brickwall_shrinked6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 10.0171, 0.965657, 12.836 )
+
+[node name="Brickwall_shrinked7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 8.01712, 0.965657, 12.836 )
+
+[node name="Brickwall_shrinked8" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 13.836 )
+
+[node name="Brickwall_shrinked9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 15.836 )
+
+[node name="Brickwall_shrinked10" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 17.836 )
+
+[node name="Brickwall_shrinked11" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 19.836 )
+
+[node name="Brickwall_shrinked12" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 21.836 )
+
+[node name="Brickwall_shrinked13" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 8.01712, 0.965657, 22.836 )
+
+[node name="Brickwall_shrinked14" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 10.0171, 0.965657, 22.836 )
+
+[node name="Brickwall_shrinked15" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 12.0171, 0.965657, 22.836 )
+
+[node name="Brickwall_shrinked16" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 14.0171, 0.965657, 22.836 )
+
+[node name="Brickwall_shrinked17" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 16.0171, 0.965657, 22.836 )
+
+[node name="Brickwall_shrinked18" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 21.836 )
+
+[node name="Brickwall_shrinked19" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 19.836 )
+
+[node name="Brickwall_shrinked20" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 17.836 )
+
+[node name="Brickwall_shrinked21" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 15.836 )
+
+[node name="Brickwall_shrinked22" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 13.836 )
+
+[node name="Brickwall_shrinked23" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 16.0171, 0.965657, 12.836 )
+
+[node name="Brickwall_shrinked24" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 15 )]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 14.0171, 0.965657, 12.836 )
+
+[node name="Door" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 9.43049, 0.0482726, 6.28637 )
+
+[node name="MarbleFloor" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 18 )
+
+[node name="MarbleFloor6" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 18 )
+
+[node name="MarbleFloor9" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 18 )
+
+[node name="MarbleFloor2" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 20 )
+
+[node name="MarbleFloor4" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 20 )
+
+[node name="MarbleFloor7" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20 )
+
+[node name="MarbleFloor3" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 16 )
+
+[node name="MarbleFloor5" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 16 )
+
+[node name="MarbleFloor8" parent="Navigation/NavigationMeshInstance/map" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 16 )
+
+[node name="Fakel" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 22 )]
+transform = Transform( -0.17, 0, -1.48619e-008, 0, 0.17, 0, 1.48619e-008, 0, -0.17, 3.02907, 0.834252, 6.94163 )
+
+[node name="Fakel4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 22 )]
+transform = Transform( 0.17, 0, 1.11759e-008, 0, 0.17, 0, -1.11759e-008, 0, 0.17, 7.30407, 0.834252, 5.12995 )
+
+[node name="Fakel3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 22 )]
+transform = Transform( -0.17, 0, -1.48619e-008, 0, 0.17, 0, 1.48619e-008, 0, -0.17, 6.02907, 0.834252, 2.60855 )
+
+[node name="Fakel2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 22 )]
+transform = Transform( 2.22928e-008, 0, -0.17, 0, 0.17, 0, 0.17, 0, 2.22928e-008, 0.805477, 0.834252, -1.20317 )
+
+[node name="red_fire" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 16.4001 )
+
+[node name="red_fire5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 16.4001 )
+
+[node name="red_fire2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 18.4001 )
+
+[node name="red_fire6" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 18.4001 )
+
+[node name="red_fire3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 20.4001 )
+
+[node name="red_fire4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 20.4001 )
+
+[node name="Bookcase2" parent="." instance=ExtResource( 23 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.23349, -0.0156932, 0.105179 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 24 )]
+
+[node name="HUD" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1024.0
+margin_right = -1.0
+margin_bottom = 602.0
+
+[node name="FPS Counter" type="Label" parent="HUD"]
+visible = false
+anchor_bottom = 1.0
+margin_left = 947.609
+margin_top = 10.5485
+margin_right = 970.609
+margin_bottom = -576.451
+rect_scale = Vector2( 2.54, 2.54 )
+custom_colors/font_color = Color( 0.827451, 1, 0.121569, 1 )
+script = ExtResource( 25 )
+
+[node name="Door2" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16528, 0.033357, 5.00618 )
+
+[node name="Door4" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 6.85908, 0.033357, 2.19326 )
+
+[node name="Door3" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16528, 0.033357, 5.00618 )
+
+[node name="Sprite3D" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.586, 0.216674, 5.95534 )
+
+[node name="Woodcrate" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.296728, 5.42958 )
+continuous_cd = true
+
+[node name="Woodcrate2" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.296728, 5.94532 )
+continuous_cd = true
+
+[node name="Woodcrate3" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.296728, 6.46559 )
+continuous_cd = true
+
+[node name="Woodcrate4" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.838219, 6.65455 )
+continuous_cd = true
+
+[node name="Woodcrate5" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.838219, 6.14042 )
+continuous_cd = true
+
+[node name="Woodcrate6" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93977, 0.838219, 5.47266 )
+continuous_cd = true
+
+[node name="Closet" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 3.54539, -0.241295, 0.225009 )
+
+[node name="BloodSplash" type="MeshInstance" parent="."]
+transform = Transform( -0.755486, 0.454805, 0, -0.301037, -0.500059, 0, 0, 0, 0.1, -0.101889, 0.652615, 6.90805 )
+mesh = SubResource( 13 )
+material/0 = null
+script = ExtResource( 30 )
+decal = ExtResource( 9 )
+uv_offset = Vector2( 0, 0 )
+uv_scale = Vector2( 1, 1 )
+emulate_lighting = true
+brightness = 1.0
+
+[node name="Decal" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 8.84149e-008, 0, 0, 1.49012e-008, -1, -8.84149e-008, 1, 0, 12.0819, 0.369186, 17.8653 )
+mesh = SubResource( 15 )
+decal = ExtResource( 31 )
+emulate_lighting = false
+
+[node name="EndLevelTrigger" parent="." instance=ExtResource( 32 )]
+transform = Transform( 0.382701, 0, 0, 0, 1, 0, 0, 0, 0.361014, 12.036, 0, 17.9774 )
+
+[node name="Mask" parent="." instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35934, 0.628225, 5.94903 )
+
+[node name="Chair" parent="." instance=ExtResource( 34 )]
+transform = Transform( -0.00722405, 0, 0.999974, 0, 1, 0, -0.999974, 0, -0.00722405, 7.61327, 0.365143, 1.16334 )
+
+[node name="Pickable" parent="." instance=ExtResource( 35 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.410631, 0 )
+
+[node name="Pickable2" parent="." instance=ExtResource( 36 )]
+transform = Transform( 0.999971, 0.00759979, 0, -0.00759979, 0.999971, 0, 0, 0, 1, 0, 0.451534, 0.877446 )
+
+[node name="Pinkamena" parent="." instance=ExtResource( 37 )]
+transform = Transform( 0.0192538, 0, 0.999815, 0, 1, 0, -0.999815, 0, 0.0192538, -3.04725, 0.446518, 9.1503 )
+
+[node name="Pickable3" parent="." instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.461836, 2.14795 )
+
+[node name="Patrol" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65385, 0.446572, 6 )
+
+[node name="Patrol2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67613, 0.527048, 6 )
+
+[node name="Player" parent="." instance=ExtResource( 39 )]
+transform = Transform( -0.996195, 0, 0.0871556, 0, 1, 0, -0.0871556, 0, -0.996195, -0.22029, 0.658982, -1.9613 )
+
+[node name="Pickable4" parent="." instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467117, 3.13493 )
+
+[node name="Lever" parent="." instance=ExtResource( 41 )]
+transform = Transform( -8.74228e-008, 0, -2, -2, -8.74228e-008, 8.74228e-008, -8.74228e-008, 2, 3.82137e-015, -6.49725, 0.701002, 7.30947 )
+
+[node name="doorway_grid" parent="." instance=ExtResource( 42 )]
+transform = Transform( -2.98023e-008, 0, -1, 0, 1, 0, 1, 0, -2.98023e-008, -5.97755, 1.9956, 7.19318 )
+
+[node name="Parasprite" parent="." instance=ExtResource( 43 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43962, 0.661515, 5.57114 )

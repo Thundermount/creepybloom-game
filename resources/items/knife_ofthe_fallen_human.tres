@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Item.gd" type="Script" id=1]
+[ext_resource path="res://sprites/weapons/Knife_ofThe_Fallen_Human.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Knife of the fallen human"
+description = "=)"
+sprite = ExtResource( 2 )
+item_type = 1
+HP = 0
+speed = 0
+attack_speed = 6
+damage = 4
+jump = 0
+projectile_speed = 4

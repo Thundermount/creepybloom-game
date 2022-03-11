@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://sprites/effects/slash.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.0703943
+height = 0.358039
+
+[node name="Bullet" type="KinematicBody"]
+script = ExtResource( 1 )
+Velocity = 4.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 0.707107, -3.09086e-008, 0.707107, -0.707107, -3.09086e-008, 0.707107, 0, -1, -4.37114e-008, 0.0215987, -0.0313014, -0.0061032 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

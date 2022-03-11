@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://models/furniture/Cabinet_Bookcase_v1_L1.123cdba2e22f-6c93-48b4-a938-e9d3d19a63ac/20359_Cabinet_Bookcase_v1_Texture.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://models/furniture/Cabinet_Bookcase_v1_L1.123cdba2e22f-6c93-48b4-a938-e9d3d19a63ac/20359_Cabinet_Bookcase.jpg" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2.9, 1.82, 1.79 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 2.9, 1.82, 0.13 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 3.28, 1.85, 0.42 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.23, 1.83, 4.47 )
+
+[node name="Bookcase" type="Spatial"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.12707e-008, 1.85926 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.49166e-007, 5.70025 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.34393e-007, 7.65003 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.16474e-007, 9.52782 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66974, -2.03466e-007, 4.65476 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7341, -2.03466e-007, 4.65476 )
+shape = SubResource( 7 )

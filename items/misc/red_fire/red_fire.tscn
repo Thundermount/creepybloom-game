@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://materials/Bilboard-Y.tres" type="Material" id=1]
+[ext_resource path="res://sprites/doom/red_firelong.png" type="Texture" id=2]
+[ext_resource path="res://scripts/FireLight.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.141251, 0.618058, 0.152141 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "red_fire"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 0.141, 0.618, 0.152 )
+
+[node name="red_fire" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068288, 0 )
+material_override = ExtResource( 1 )
+pixel_size = 0.005
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+autoplay = "red_fire"
+anims/red_fire = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.823529, 0.470588, 0.211765, 1 )
+light_energy = 4.0
+shadow_enabled = true
+script = ExtResource( 3 )
+
+[node name="NavmeshObstacle" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = null

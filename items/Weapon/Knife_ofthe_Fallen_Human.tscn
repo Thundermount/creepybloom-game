@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/WeaponRandomBullets.gd" type="Script" id=1]
+[ext_resource path="res://items/Weapon/Bullet/Slash.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/Weapon/Bullet/Slash2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/weapons/Knife_ofThe_Fallen_HumanAnimations/left_slash/0.png" type="Texture" id=4]
+[ext_resource path="res://sprites/weapons/Knife_ofThe_Fallen_HumanAnimations/left_slash/1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/weapons/Knife_ofThe_Fallen_HumanAnimations/left_slash/2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/weapons/Knife_ofThe_Fallen_HumanAnimations/left_slash/-1.png" type="Texture" id=7]
+[ext_resource path="res://materials/ui.tres" type="Material" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fire"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), null, ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire2"
+length = 0.4
+
+[node name="2" type="Spatial"]
+script = ExtResource( 1 )
+CreateBulletAt = 1
+bullet_scenes = [ ExtResource( 2 ), ExtResource( 3 ) ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fire = SubResource( 1 )
+anims/fire2 = SubResource( 2 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+stretch = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, -0.23, -0.76 )
+material_override = ExtResource( 8 )
+texture = ExtResource( 7 )
+
+[node name="Camera" type="Camera" parent="."]

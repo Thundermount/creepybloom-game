@@ -1,0 +1,159 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://resources/health_systems/PlayerStats.tres" type="Resource" id=2]
+[ext_resource path="res://scripts/WeaponSwitcher.gd" type="Script" id=3]
+[ext_resource path="res://scripts/inventory.gd" type="Script" id=4]
+[ext_resource path="res://sprites/gui/HealthBar/HealthBar_Frame.png" type="Texture" id=5]
+[ext_resource path="res://sprites/gui/HealthBar/HealthBar_Bar.png" type="Texture" id=6]
+[ext_resource path="res://sprites/gui/HealthBar/HealthBar_Back.png" type="Texture" id=7]
+[ext_resource path="res://sprites/creepybloom/face_sprites.png" type="Texture" id=8]
+[ext_resource path="res://sprites/gui/HealthBar/HealthBar_Circle.png" type="Texture" id=9]
+[ext_resource path="res://sprites/gui/hand.png" type="Texture" id=10]
+[ext_resource path="res://sprites/gui/heart_shaped_object.png" type="Texture" id=11]
+[ext_resource path="res://scripts/HeartShapedObjects.gd" type="Script" id=12]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.246634, 0.808 ), 0.0, 0.0, 0, 0, Vector2( 0.496431, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.753366, 0.8168 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.186725
+height = 0.349984
+
+[sub_resource type="Animation" id=3]
+resource_name = "normal"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 2.5, 3.1, 3.8, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2, 0, 0 ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="Player" type="KinematicBody"]
+collision_layer = 4
+script = ExtResource( 1 )
+Camera_Sway = SubResource( 1 )
+HealthSystem = ExtResource( 2 )
+Hand = NodePath("ui/Cursor/Hand")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317223, 0 )
+keep_aspect = 0
+fov = 100.0
+far = 10.0
+
+[node name="ActionRay" type="RayCast" parent="Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
+collision_mask = 2
+
+[node name="WeaponSwitcher" type="Spatial" parent="Camera"]
+script = ExtResource( 3 )
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ui" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.857361
+margin_top = -0.554779
+margin_right = -0.857361
+margin_bottom = -0.55481
+stretch = true
+
+[node name="HealthBar" type="Control" parent="ui"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthBar_Frame" type="Sprite" parent="ui/HealthBar"]
+visible = false
+position = Vector2( 262.254, -48.1631 )
+scale = Vector2( 0.0643193, 0.0523285 )
+texture = ExtResource( 5 )
+
+[node name="TextureProgress" type="TextureProgress" parent="ui/HealthBar/HealthBar_Frame"]
+margin_left = -2343.23
+margin_top = -212.44
+margin_right = 2355.77
+margin_bottom = 201.56
+value = 100.0
+texture_progress = ExtResource( 6 )
+
+[node name="HealthBar_Back" type="Sprite" parent="ui/HealthBar"]
+visible = false
+position = Vector2( 86.6838, -47.1055 )
+scale = Vector2( 0.100036, 0.100036 )
+texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="ui/HealthBar"]
+visible = false
+position = Vector2( 86.302, -46.6859 )
+scale = Vector2( 0.511672, 0.511671 )
+texture = ExtResource( 8 )
+vframes = 4
+hframes = 3
+region_rect = Rect2( 0, 0, 400, 574.57 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/HealthBar/Sprite"]
+autoplay = "normal"
+anims/normal = SubResource( 3 )
+
+[node name="HealthBar_Circle" type="Sprite" parent="ui/HealthBar"]
+visible = false
+position = Vector2( 86.5, -47.7869 )
+scale = Vector2( 0.103883, 0.103883 )
+texture = ExtResource( 9 )
+
+[node name="Cursor" type="Control" parent="ui"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Hand" type="TextureRect" parent="ui/Cursor"]
+rect_pivot_offset = Vector2( 16.3, 18.15 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 4
+
+[node name="PlayerStats" type="Control" parent="ui"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -600.0
+margin_right = 40.0
+margin_bottom = -560.0
+
+[node name="HeartShapedObjects" type="ItemList" parent="ui/PlayerStats"]
+margin_left = 20.1402
+margin_top = 8.18481
+margin_right = 545.14
+margin_bottom = 82.1848
+custom_styles/bg = SubResource( 4 )
+items = [ "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false, "", ExtResource( 11 ), false ]
+max_text_lines = 2
+max_columns = 9
+same_column_width = true
+icon_mode = 0
+script = ExtResource( 12 )
