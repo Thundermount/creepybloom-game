@@ -60,7 +60,6 @@ LevelData="*res://map/func/LevelData.tscn"
 
 [display]
 
-window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 

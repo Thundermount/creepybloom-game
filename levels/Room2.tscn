@@ -24,7 +24,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00114536, 0.00212002, 0.0018
 transform = Transform( 6.70552e-008, 0, -1, 0, 1, 0, 1, 0, 6.70552e-008, 0, 1, 1 )
 
 [node name="RoomProperties" parent="." instance=ExtResource( 4 )]
-Room_max = 30
 LeftRooms = [ ExtResource( 5 ), ExtResource( 6 ) ]
 RightRooms = [ ExtResource( 7 ) ]
 ForwardRooms = [ ExtResource( 2 ), ExtResource( 8 ) ]

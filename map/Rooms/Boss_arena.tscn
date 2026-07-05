@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://map/planks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map/rock_floor.tscn" type="PackedScene" id=2]
@@ -8,9 +8,7 @@
 [ext_resource path="res://map/effects/Decal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/decals/decal.shader" type="Shader" id=7]
 [ext_resource path="res://sprites/blood/bloodpent.png" type="Texture" id=8]
-[ext_resource path="res://addons/decals/decal.gd" type="Script" id=9]
-[ext_resource path="res://map/func/EndLevelTrigger.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scripts/EndLevel.gd" type="Script" id=11]
+[ext_resource path="res://map/func/EndLevelTrigger.tscn" type="PackedScene" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.0144239, 1 )
@@ -43,328 +41,305 @@ transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 12, 0
 editor/display_folded = true
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -18, 0, 12 )
 
-[node name="planks21" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks21" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14 )
 shape = SubResource( 1 )
 
-[node name="planks30" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks30" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16 )
 shape = SubResource( 1 )
 
-[node name="planks34" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks34" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 16 )
 shape = SubResource( 1 )
 
-[node name="planks24" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks24" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14 )
 shape = SubResource( 1 )
 
-[node name="planks31" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks31" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 14 )
 shape = SubResource( 1 )
 
-[node name="planks33" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks33" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 14 )
 shape = SubResource( 1 )
 
-[node name="planks25" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks25" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14 )
 shape = SubResource( 1 )
 
-[node name="planks45" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks45" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22 )
 shape = SubResource( 1 )
 
-[node name="planks41" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks41" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 22 )
 shape = SubResource( 1 )
 
-[node name="planks44" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks44" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 22 )
 shape = SubResource( 1 )
 
-[node name="planks32" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks32" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18 )
 shape = SubResource( 1 )
 
-[node name="planks40" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks40" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 20 )
 shape = SubResource( 1 )
 
-[node name="planks43" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks43" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 22 )
 shape = SubResource( 1 )
 
-[node name="planks35" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks35" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 18 )
 shape = SubResource( 1 )
 
-[node name="planks39" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks39" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 20 )
 shape = SubResource( 1 )
 
-[node name="planks42" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 1 )]
-editor/display_folded = true
+[node name="planks42" parent="Boss_arena" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 22 )
 shape = SubResource( 1 )
 
-[node name="rock_floor19" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor19" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 13.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor20" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor20" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 13.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor22" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor22" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 15.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor65" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor65" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 13.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor29" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor29" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 15.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor30" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor30" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 15.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor36" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor36" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 15.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor42" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor42" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 13.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor40" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor40" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 15.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor43" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor43" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 13.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor23" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor23" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 17.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor28" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor28" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 17.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor31" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor31" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 17.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor37" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor37" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 17.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor39" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor39" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 17.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor24" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor24" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 19.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor26" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor26" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 19.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor33" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor33" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 19.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor34" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor34" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 19.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor38" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor38" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 19.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor25" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor25" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 7.99733, 1.87133, 21.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor27" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor27" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 9.99733, 1.87133, 21.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor32" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor32" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 11.9973, 1.87133, 21.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor35" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor35" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 13.9973, 1.87133, 21.9947 )
 shape = SubResource( 2 )
 
-[node name="rock_floor41" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 2 )]
+[node name="rock_floor41" parent="Boss_arena" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-008, 0, -8.74228e-008, -1, 15.9973, 1.87133, 21.9947 )
 shape = SubResource( 2 )
 
-[node name="Brickwall_shrinked6" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked6" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 10.0171, 0.965657, 12.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked7" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked7" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 8.01712, 0.965657, 12.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked8" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked8" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 13.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked9" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked9" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 15.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked10" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked10" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 17.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked11" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked11" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 19.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked12" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked12" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01712, 0.965657, 21.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked13" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked13" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 8.01712, 0.965657, 22.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked14" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked14" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 10.0171, 0.965657, 22.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked15" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked15" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 12.0171, 0.965657, 22.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked16" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked16" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 14.0171, 0.965657, 22.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked17" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked17" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 16.0171, 0.965657, 22.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked18" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked18" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 21.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked19" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked19" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 19.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked20" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked20" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 17.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked21" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked21" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 15.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked22" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked22" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 17.0171, 0.965657, 13.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked23" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked23" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 16.0171, 0.965657, 12.836 )
 shape = SubResource( 3 )
 
-[node name="Brickwall_shrinked24" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 3 )]
+[node name="Brickwall_shrinked24" parent="Boss_arena" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 14.0171, 0.965657, 12.836 )
 shape = SubResource( 3 )
 
-[node name="MarbleFloor" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 18 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor6" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor6" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 18 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor9" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor9" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 18 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor2" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor2" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 20 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor4" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor4" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 20 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor7" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor7" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor3" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor3" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 16 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor5" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor5" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 16 )
 shape = SubResource( 4 )
 
-[node name="MarbleFloor8" type="CollisionShape" parent="Boss_arena" instance=ExtResource( 4 )]
+[node name="MarbleFloor8" parent="Boss_arena" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 16 )
 shape = SubResource( 4 )
 
-[node name="red_fire" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 16.4001 )
 
-[node name="red_fire5" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire5" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 16.4001 )
 
-[node name="red_fire2" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire2" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 18.4001 )
 
-[node name="red_fire6" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire6" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 18.4001 )
 
-[node name="red_fire3" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire3" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9292, 0.767805, 20.4001 )
 
-[node name="red_fire4" type="StaticBody" parent="Boss_arena" instance=ExtResource( 5 )]
+[node name="red_fire4" parent="Boss_arena" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92924, 0.767805, 20.4001 )
 
-[node name="Decal" type="MeshInstance" parent="Boss_arena" instance=ExtResource( 6 )]
+[node name="Decal" parent="Boss_arena" instance=ExtResource( 6 )]
 transform = Transform( 1, 8.84149e-008, 0, 0, 1.49012e-008, -1, -8.84149e-008, 1, 0, 12.0819, 0.369186, 17.8653 )
 mesh = SubResource( 6 )
-material/0 = null
-script = ExtResource( 9 )
 decal = ExtResource( 8 )
-uv_offset = Vector2( 0, 0 )
-uv_scale = Vector2( 1, 1 )
 emulate_lighting = false
-brightness = 0.0
 
-[node name="EndLevelTrigger" type="Area" parent="Boss_arena" instance=ExtResource( 10 )]
+[node name="EndLevelTrigger" parent="Boss_arena" instance=ExtResource( 9 )]
 transform = Transform( 0.382701, 0, 0, 0, 1, 0, 0, 0, 0.361014, 12.036, 0, 17.9774 )
-script = ExtResource( 11 )
-[connection signal="body_entered" from="Boss_arena/EndLevelTrigger" to="Boss_arena/EndLevelTrigger" method="_on_EndLevelTrigger_body_entered"]
